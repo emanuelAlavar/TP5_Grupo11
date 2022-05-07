@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="ISO-8859-1">
@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<header>
+	<header th:insert="/layouts/header::header">
 		<h1> Calendario </h1>
 		<nav>
 			<ul>
@@ -25,9 +25,7 @@
 	<video src="../static/videos/video.mp4" controls>
 	
 	</video>
-	<footer>
-		<p>2022. | TP4 - Programación Visual | Facultad de Ingeniería - UNJu. - Ítalo Palanca Nº 10 - San Salvador de Jujuy - Jujuy - Argentina.</p>
-	</footer>
+	<footer th:replace="/layouts/footer::footer"></footer>
 </body>
 
 </html>

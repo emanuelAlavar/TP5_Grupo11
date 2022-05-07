@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> </title>
 </head>
 <body>
-     <header>
-     	<h1>contactos</h1>
-     	<img src="../static/images/Contacts.jpg" alt="No se cargo la imagen" title="Contactos" width="250px" height="100px">
-     </header>
+     <header th:replace="/layouts/footer::footer"></header>
 
     <nav>
     	
@@ -88,11 +85,7 @@
 
 
 
-     <footer>
-     	
-           <p>2022.Portal de capacitacion-Av.General Manuel Belgrano 789-Telefono (388)999999 S.S de jujuy Republica Argentina</p>
-
-     </footer>
+     <footer th:replace="/layouts/footer::footer"></footer>
 
 
 

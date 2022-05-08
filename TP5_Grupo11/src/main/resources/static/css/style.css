@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
-		/*todos los elementos p y h1 (para los textos de párrafos y títulos)*/
+	/*todos los elementos p y h1 (para los textos de párrafos y títulos)*/
 	p, h1 {
 		color: blue;
 		font-style: italic;
@@ -10,4 +10,5 @@
 	a {
 		color: blue;
 		font-style: italic;
-}
+		font-family: cursive;
+	}

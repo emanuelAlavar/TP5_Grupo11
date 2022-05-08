@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="/layouts/header::header"></header>
+	<table>
+		<tr>
+			<th>Código</th>
+			<th>Curso</th>
+			<th>Fecha de Inicio</th>
+			<th>Fecha de Cierre</th>
+			<th>Estado</th>
+		</tr>
+		<tr>
+			<th th:text="${codigo}"/>
+			<th th:text="${curso}"/>
+			<th th:text="${inicio}"/>
+			<th th:text="${cierre}"/>
+			<th th:text="${estado}"/>
+		</tr>
+	</table>
+	
+	<footer th:replace="/layouts/footer::footer"></footer>
+</body>
+</html>

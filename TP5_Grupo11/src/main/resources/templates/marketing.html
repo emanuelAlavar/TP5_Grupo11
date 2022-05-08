@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Curso de Marketing</title>
@@ -8,6 +8,7 @@
 	</h1>
 </head>
 <body>
+	<header th:replace="/layouts/header::header"></header>
 	<nav>
 		<ul>
 			<li>
@@ -50,5 +51,6 @@
 			</tr>
 		</table>
 	</section>
+	<footer th:replace="/layouts/footer::footer"></footer>
 </body>
 </html>

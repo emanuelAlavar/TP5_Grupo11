@@ -2,7 +2,7 @@
 	/*todos los elementos p - textos de párrafos*/
 	p {
 		color: blue;
-		font-style: italic;
+		font-style:italic;
 		text-align: center;
 	}
 	

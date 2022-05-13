@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-	<body>
-	   <header th:fragment="header">
-	   
-	        <h1>Bienvenidos Inscripcion a Becas 2022</h1>
-			<nav>
-				<ul>
-					<li><a href="../index.html">Inicio</a></li> 
-					<li><a href="../agenda.html">Agenda</a></li> 
-					<li><a href="../beneficios.html">Beneficios y Becas</a></li> 
-					<li><a href="../contacto.html">Contactanos</a></li> 
-				</ul>	  
-			</nav>
-	   
-	   </header>
+	<body >
+		<div class="card">
+		   <header th:fragment="header" class="card-header">   
+		        <h1 class="h1">Bienvenidos Inscripcion a Becas 2022</h1>
+				<nav class="navbar navbar-expand-lg bg-light">
+					<div class="container-fluid">
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav">
+								<li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li> 
+								<li class="nav-item"><a class="nav-link" href="../agenda.html">Agenda</a></li> 
+								<li class="nav-item"><a class="nav-link" href="../beneficios.html">Beneficios y Becas</a></li> 
+								<li class="nav-item"><a class="nav-link" href="../contacto.html">Contactanos</a></li> 
+							</ul>	
+						</div>
+					</div>  
+				</nav>	   
+		   </header>
+		</div>
 	</body>
 </html>

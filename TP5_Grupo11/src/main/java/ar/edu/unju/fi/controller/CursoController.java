@@ -1,4 +1,4 @@
-package ar.edu.unju.controller;
+package ar.edu.unju.fi.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/inicio")
-public class BecaController {
+public class CursoController {
 
-	@GetMapping("/beca")
-	public String getBecaPage() {
-		return "Beca";
+	@GetMapping("/curso")
+	public String getCursoPage() {
+		return "Curso";
 	}
 }

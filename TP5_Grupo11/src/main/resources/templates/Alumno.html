@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Alumno</title>
-</head>
-<body>
-	<header th:replace="/layouts/header::header"></header>
-	<table>
-		<tr>
-			<th>DNI</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Email</th>
-			<th>Telefono</th>
-		</tr>
-		<tr>
-			<th th:text="${dni}"/>
-			<th th:text="${nombre}"/>
-			<th th:text="${apellido}"/>
-			<th th:text="${email}"/>
-			<th th:text="${telefono}"/>
-		</tr>
-	</table>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Alumno</title>
+	</head>
 	
-	<footer th:replace="/layouts/footer::footer"></footer>
-</body>
+	<body>
+		<header th:replace="/layouts/header::header"></header>
+		<table class="table">
+			<tr>
+				<th>DNI</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Email</th>
+				<th>Telefono</th>
+			</tr>
+			<tr>
+				<th th:text="${alumno.dni}"/>
+				<th th:text="${alumno.nombre}"/>
+				<th th:text="${alumno.apellido}"/>
+				<th th:text="${alumno.email}"/>
+				<th th:text="${alumno.telefono}"/>
+			</tr>
+		</table>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
 </html>

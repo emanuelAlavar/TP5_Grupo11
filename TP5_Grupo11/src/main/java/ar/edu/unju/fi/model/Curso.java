@@ -1,4 +1,4 @@
-package ar.edu.unju.model;
+package ar.edu.unju.fi.model;
 
 
 public class Curso {

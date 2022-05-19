@@ -2,13 +2,13 @@
 	/*todos los elementos p - textos de párrafos*/
 	p {
 		color: blue;
-		font-style: italic;
+		font-style:italic;
 		text-align: center;
 	}
 	
 	/*toos los elementos h1 - títulos*/
 	h1 {
-		color: blue;
+		color: green;
 		font-style: italic;
 		text-align: center;
 	}
@@ -16,6 +16,5 @@
 	/*todos los elementos a - enlaces*/
 	a {
 		color: blue;
-		font-style: italic;
 		font-family: cursive;
 	}

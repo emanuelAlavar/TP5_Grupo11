@@ -1,22 +1,41 @@
 package ar.edu.unju.fi.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.model.Alumno;
-
-
+import ar.edu.unju.fi.util.ListaAlumno;
 
 @Controller
-@RequestMapping("/inicio")
+@RequestMapping("/alumno")
 public class AlumnoController {
-
-	@GetMapping("/alumno")
-	public String getIndexPage(Model model) {
-		Alumno unAlumno = new Alumno(333333,"Hector","Cruz","hector@gmail.com",444);
-		model.addAttribute("alumno",unAlumno);		
-		return "Alumno";
+	
+	private static final Log LOGGER = LogFactory.getLog(AlumnoController.class);
+	// creo un objeto de la clase ListaAlumno, donde está el arrayList
+	ListaAlumno listaAlumnos = new ListaAlumno();
+	@GetMapping("/nuevo")
+	public String getFormNuevoAlumnnoPage(Model model) {
+		model.addAttribute("alumno", new Alumno());
+		return "nuevo_alumno";
+	}
+	
+	@PostMapping("/guardar")
+	public ModelAndView getListaAlumnosPage(@ModelAttribute("alumno")Alumno alumno) {
+		ModelAndView mav = new ModelAndView("lista_alumnos");
+		
+		//recupero el arrayList y agrego un objeto alumno a lista
+		if(listaAlumnos.getAlumnos().add(alumno)) {
+			LOGGER.info("Se agregó un objeto al arrayList de alumnos");
+		}
+		//enviar el arrayList de alumnos a la página lista_alumnos
+		mav.addObject("alumnos", listaAlumnos.getAlumnos());
+		return mav;
 	}
 }

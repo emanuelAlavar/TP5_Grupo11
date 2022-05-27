@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Nuevo Alumno</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<h2>ALTA DE ALUMNO</h2><br>
+			<form th:action="@{/alumno/guardar}" method="POST" th:object="${alumno}">
+			  <div class="mb-3">
+			    <label for="idDni" class="col-form-label">DNI</label>
+			    <input th:field="*{dni}" type="number" class="form-control" id="idDni">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idNombre" class="col-form-label">Nombre</label>
+			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idapellido" class="col-form-label">Apellido</label>
+				<input th:field="*{apellido}" type="text" class="form-control" id="idapellido">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idEmail" class="col-form-label">Email</label>
+			    <input th:field="*{email}" type="email" class="form-control" id="idEmail">		    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idTelefono" class="col-form-label">Telefono</label>
+			    <input th:field="*{telefono}" type="number" class="form-control" id="idTelefono">		    
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

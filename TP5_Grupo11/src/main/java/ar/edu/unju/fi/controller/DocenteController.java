@@ -17,6 +17,8 @@ import ar.edu.unju.fi.util.ListaDocente;
 @RequestMapping("/docente")
 public class DocenteController {
 	private static final Log LOGGER = LogFactory.getLog(DocenteController.class);
+	// creo un objeto de la clase ListaDocente, donde está el arrayList
+	ListaDocente listaDocentes = new ListaDocente();
 	
 	@GetMapping("/nuevo")
 	public String getFormNuevoAlumnnoPage(Model model) {
@@ -27,8 +29,7 @@ public class DocenteController {
 	@PostMapping("/guardar")
 	public ModelAndView getListaDocentesPage(@ModelAttribute("docente")Docente docente) {
 		ModelAndView mav = new ModelAndView("lista_docentes");
-		// creo un objeto de la clase ListaDocente, donde está el arrayList
-		ListaDocente listaDocentes = new ListaDocente();
+		
 		//recupero el arrayList y agrego un objeto docente a lista
 		if(listaDocentes.getDocentes().add(docente)) {
 			LOGGER.info("Se agregó un objeto al arrayList de docentes");

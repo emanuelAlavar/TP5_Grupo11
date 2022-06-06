@@ -1,11 +1,14 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Curso {
 	private int codigo;
 	private String titulo;
 	private String categoria;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaInicio;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaFin;
 	private int horas;
 	private String modalidad;

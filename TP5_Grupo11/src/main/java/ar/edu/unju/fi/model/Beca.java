@@ -1,9 +1,13 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Beca {
 	private int codigo;
 	private Curso curso;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaInicio;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaCierre;
 	private boolean estado;
 	

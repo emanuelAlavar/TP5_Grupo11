@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Nuevo Curso</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<h2>ALTA DE Cursos</h2><br>
+			<form th:action="@{/curso/guardar}" method="POST" th:object="${curso}">
+			  <div class="mb-3">
+			    <label for="idCodigo" class="col-form-label">Codigo</label>
+			    <input th:field="*{codigo}" type="number" class="form-control" id="idCodigo">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idTitulo" class="col-form-label">Titulo</label>
+			    <input th:field="*{titulo}" type="text" class="form-control" id="idtitulo">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idcategoria" class="col-form-label">Categoria</label>
+				<input th:field="*{categoria}" type="text" class="form-control" id="idcategoria">
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idFechaInicio" class="col-form-label">Fecha de inicio</label>
+			    <input th:field="*{fechaInicio}" type="date" class="form-control" id="idFechaInicio">		    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idFechaFin" class="col-form-label">Fecha fin</label>
+			    <input th:field="*{fechaFin}" type="date" class="form-control" id="idFechaFin">		    
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

@@ -9,7 +9,7 @@
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
 			<h2>ALTA DE ALUMNO</h2><br>
-			<form th:action="@{/alumno/guardar}" method="POST" th:object="${alumno}">
+			<form th:action="@{/alumno/alumnos}" method="POST" th:object="${alumno}">
 			  <div class="mb-3">
 			    <label for="idDni" class="col-form-label">DNI</label>
 			    <input th:field="*{dni}" type="number" class="form-control" id="idDni">
@@ -36,8 +36,8 @@
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
-					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+					<button th:href="@{alumno/alumnos}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/alumno/alumnos}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			</form>
 		</div>

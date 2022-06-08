@@ -4,16 +4,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Beca {
 	private int codigo;
-	private Curso curso;
+	//private Curso curso;
+	private String curso;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaInicio;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaCierre;
-	private boolean estado;
+	private String estado;
+	//private boolean estado;
 	
 	
 	
-	public Beca(int codigo, Curso curso, String fechaInicio, String fechaCierre, boolean estado) {
+	public Beca(int codigo, String curso, String fechaInicio, String fechaCierre, String estado) {
 		this.codigo = codigo;
 		this.curso = curso;
 		this.fechaInicio = fechaInicio;
@@ -28,10 +30,10 @@ public class Beca {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public Curso getCurso() {
+	public String getCurso() {
 		return curso;
 	}
-	public void setCurso(Curso curso) {
+	public void setCurso(String curso) {
 		this.curso = curso;
 	}
 	public String getFechaInicio() {
@@ -46,10 +48,10 @@ public class Beca {
 	public void setFechaCierre(String fechaCierre) {
 		this.fechaCierre = fechaCierre;
 	}
-	public boolean getEstado() {
+	public String getEstado() {
 		return estado;
 	}
-	public void setEstado(boolean estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 

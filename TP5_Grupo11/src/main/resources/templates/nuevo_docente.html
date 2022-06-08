@@ -9,7 +9,7 @@
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
 			<h2>ALTA DE DOCENTE</h2><br>
-			<form th:action="@{/docente/guardar}" method="POST" th:object="${docente}">
+			<form th:action="@{/docente/docentes}" method="POST" th:object="${docente}">
 			  <div class="mb-3">
 			    <label for="idLegajo" class="col-form-label">Legajo</label>
 			    <input th:field="*{legajo}" type="number" class="form-control" id="idLegajo">
@@ -36,8 +36,8 @@
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
-					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+					<button th:href="@{/docente/docentes}"  class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/docente/docentes}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			</form>
 		</div>

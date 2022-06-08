@@ -9,7 +9,7 @@
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
 			<h2>ALTA DE Cursos</h2><br>
-			<form th:action="@{/curso/guardar}" method="POST" th:object="${curso}">
+			<form th:action="@{/curso/cursos}" method="POST" th:object="${curso}">
 			  <div class="mb-3">
 			    <label for="idCodigo" class="col-form-label">Codigo</label>
 			    <input th:field="*{codigo}" type="number" class="form-control" id="idCodigo">
@@ -36,8 +36,8 @@
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
-					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+					<button th:ref="@{/curso/cursos}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/curso/cursos}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			</form>
 		</div>

@@ -20,21 +20,26 @@ public class AlumnoController {
 	private static final Log LOGGER = LogFactory.getLog(AlumnoController.class);
 	// creo un objeto de la clase ListaAlumno, donde está el arrayList
 	ListaAlumno listaAlumnos = new ListaAlumno();
+	
+	@GetMapping("/alumnos")
+	public ModelAndView getAlumunosPage(Model model) {
+		ModelAndView mav = new ModelAndView("lista_alumnos");
+		mav.addObject("alumnos", listaAlumnos.getAlumnos());
+		return mav;
+	}
 	@GetMapping("/nuevo")
-	public String getFormNuevoAlumnnoPage(Model model) {
+	public String getFormNuevoAlumnoPage(Model model) {
 		model.addAttribute("alumno", new Alumno());
 		return "nuevo_alumno";
 	}
 	
-	@PostMapping("/guardar")
+	@PostMapping("/alumnos")
 	public ModelAndView getListaAlumnosPage(@ModelAttribute("alumno")Alumno alumno) {
 		ModelAndView mav = new ModelAndView("lista_alumnos");
 		
-		//recupero el arrayList y agrego un objeto alumno a lista
 		if(listaAlumnos.getAlumnos().add(alumno)) {
-			LOGGER.info("Se agregó un objeto al arrayList de alumnos");
+			LOGGER.info("Se agregó un nuevo alumno al arrayList de alumnos");
 		}
-		//enviar el arrayList de alumnos a la página lista_alumnos
 		mav.addObject("alumnos", listaAlumnos.getAlumnos());
 		return mav;
 	}

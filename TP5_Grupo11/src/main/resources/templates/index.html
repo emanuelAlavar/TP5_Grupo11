@@ -4,23 +4,27 @@
 <head>
 	<meta charset="utf-8">
 	<title>Trabajo Practico N1</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
 </head>
 
 <body>
-	<header th:replace="/layouts/header::header"></header>
-  	<section>
-		<h2>Cursos con inscripcion abierta</h2>
-		<ol>
-			<li><a href="#">Idiomas</a></li> 
-			<li><a href="#">Diseno</a></li> 
-			<li><a href="#">Desarrollo</a></li> 
-			<li><a href="#">Marketing</a></li> 
-			<li><a href="#">Conferencias</a></li> 
-		</ol>
-	</section>
-	<footer th:replace="/layouts/footer::footer"></footer>
+	<div class="container">
+		<header th:replace="/layouts/header::header"></header>
+	  	<section>
+			<h2>Cursos con inscripcion abierta</h2>
+			<ol>
+				<li><a href="/">Idiomas</a></li> 
+				<li><a href="/">Diseno</a></li> 
+				<li><a href="/">Desarrollo</a></li> 
+				<li><a href="./marketing.html">Marketing</a></li> 
+				<li><a href="/">Conferencias</a></li> 
+			</ol>
+		</section>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</div>
+	
 </body>
 
 </html>

@@ -14,7 +14,7 @@ public class ListaCurso {
 	}
 	
 	/*métodos accesores*/
-	public ArrayList<Curso> getCusrsos() {
+	public ArrayList<Curso> getCursos() {
 		return cursos;
 	}
 

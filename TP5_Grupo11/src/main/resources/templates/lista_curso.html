@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>		
 		<meta charset="UTF-8">
 		<title>Lista de Cursos</title>		
 	</head>
 	
 	<body>		
 		<div class="container">
-		<header th:replace="/layouts/header :: header"></header>
+			<header th:replace="/layouts/header :: header"></header>
 			<br>
 			<p class="h4 mb-10">Cursos</p>
 			<br>
@@ -24,6 +26,7 @@
 							<th>Categoria</th>							
 							<th>Fecha inicio</th>
 							<th>Fecha fin</th>
+							<th>Opciones</th>
 							
 						</tr>	
 						<tr th:each="curso: ${cursos}">
@@ -38,7 +41,8 @@
 							</td>
 						</tr>
 					</table>
-				<br><br>				
+				<br>
+				<br>				
 			</div>	
 			<footer th:replace="/layouts/footer :: footer"></footer>
 		</div>		

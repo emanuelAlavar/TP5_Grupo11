@@ -22,22 +22,30 @@ public class CursoController {
 	private static final Log LOGGER = LogFactory.getLog(CursoController.class);
 	// creo un objeto de la clase ListaAlumno, donde está el arrayList
 	ListaCurso listaCurso = new ListaCurso();
+	
+	@GetMapping("/cursos")
+	public ModelAndView getDocentesPage(Model model) {
+		ModelAndView mav = new ModelAndView("lista_curso");
+		mav.addObject("cursos", listaCurso.getCursos());
+		return mav;
+	}
+	
 	@GetMapping("/nuevo")
 	public String getFormNuevoCursoPage(Model model) {
 		model.addAttribute("curso", new Curso());
 		return "nuevo_curso";
 	}
 	
-	@PostMapping("/guardar")
+	@PostMapping("/cursos")
 	public ModelAndView getListaCursoPage(@ModelAttribute("curso")Curso curso) {
 		ModelAndView mav = new ModelAndView("lista_curso");
 		
-		//recupero el arrayList y agrego un objeto alumno a lista
-		if(listaCurso.getCusrsos().add(curso)) {
-			LOGGER.info("Se agregó un objeto al arrayList de curso");
+
+		if(listaCurso.getCursos().add(curso)) {
+			LOGGER.info("Se agregó un nuevo curso al arrayList de curso");
 		}
-		//enviar el arrayList de alumnos a la página lista_alumnos
-		mav.addObject("cursos", listaCurso.getCusrsos());
+
+		mav.addObject("cursos", listaCurso.getCursos());
 		return mav;
 	}
 }

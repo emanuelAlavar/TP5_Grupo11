@@ -1,16 +1,24 @@
 package ar.edu.unju.fi.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Curso {
+	@Min(value=15)
 	private int codigo;
+	@NotBlank
 	private String titulo;
+	@NotBlank
 	private String categoria;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaInicio;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaFin;
+	@Min(value=2)
 	private int horas;
+	@NotBlank
 	private String modalidad;
 	private Docente docente;
 	

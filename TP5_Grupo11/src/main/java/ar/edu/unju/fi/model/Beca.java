@@ -1,15 +1,26 @@
 package ar.edu.unju.fi.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class Beca {
+	@Min(value=15)
 	private int codigo;
+	@NotBlank
 	//private Curso curso;
 	private String curso;
+	@NotBlank
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaInicio;
+	@NotBlank
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String fechaCierre;
+	@NotBlank
 	private String estado;
 	//private boolean estado;
 	

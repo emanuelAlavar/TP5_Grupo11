@@ -50,7 +50,7 @@ public class DocenteController {
 		
 		//recupero el arrayList y agrego un objeto docente a lista
 		if(listaDocentes.getDocentes().add(docente)) {
-			LOGGER.info("Se agregÃ³ un nuevo docente al arrayList de docentes");
+			LOGGER.info("Se agrego un nuevo docente al arrayList de docentes");
 		}
 		//enviar el arrayList de docentes a la pÃ¡gina lista_docentes
 		mav.addObject("docentes", listaDocentes.getDocentes());

@@ -3,7 +3,7 @@ package ar.edu.unju.fi.util;
 import java.util.ArrayList;
 
 
-import ar.edu.unju.fi.model.Curso;
+import ar.edu.unju.fi.entity.Curso;
 
 public class ListaCurso {
 	private ArrayList<Curso> cursos;

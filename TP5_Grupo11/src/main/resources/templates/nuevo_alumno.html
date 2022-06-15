@@ -13,26 +13,31 @@
 			  <div class="mb-3">
 			    <label for="idDni" class="col-form-label">DNI</label>
 			    <input th:field="*{dni}" type="number" class="form-control" id="idDni">
+			    <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idNombre" class="col-form-label">Nombre</label>
 			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idapellido" class="col-form-label">Apellido</label>
 				<input th:field="*{apellido}" type="text" class="form-control" id="idapellido">
+				<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idEmail" class="col-form-label">Email</label>
-			    <input th:field="*{email}" type="email" class="form-control" id="idEmail">		    
+			    <input th:field="*{email}" type="email" class="form-control" id="idEmail">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>	    
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idTelefono" class="col-form-label">Telefono</label>
-			    <input th:field="*{telefono}" type="number" class="form-control" id="idTelefono">		    
+			    <input th:field="*{telefono}" type="number" class="form-control" id="idTelefono">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>	    
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">

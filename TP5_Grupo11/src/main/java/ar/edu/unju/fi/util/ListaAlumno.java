@@ -2,7 +2,7 @@ package ar.edu.unju.fi.util;
 
 import java.util.ArrayList;
 
-import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.entity.Alumno;
 
 public class ListaAlumno {
 	private ArrayList<Alumno> alumnos;

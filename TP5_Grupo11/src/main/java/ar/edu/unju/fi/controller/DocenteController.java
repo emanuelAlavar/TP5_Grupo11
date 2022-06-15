@@ -4,13 +4,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.model.Docente;
+import ar.edu.unju.fi.entity.Docente;
 import ar.edu.unju.fi.util.ListaDocente;
 
 @Controller
@@ -37,7 +39,13 @@ public class DocenteController {
 
 	
 	@PostMapping("/docentes")
-	public ModelAndView getListaDocentesPage(@ModelAttribute("docente")Docente docente) {
+	public ModelAndView getListaDocentesPage(@Validated @ModelAttribute("docente")Docente docente, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			LOGGER.error("No se cumplen las reglas de validación");
+			ModelAndView mav = new ModelAndView("nuevo_docente");
+			mav.addObject("docente", docente);
+			return mav;
+		}
 		ModelAndView mav = new ModelAndView("lista_docentes");
 		
 		//recupero el arrayList y agrego un objeto docente a lista

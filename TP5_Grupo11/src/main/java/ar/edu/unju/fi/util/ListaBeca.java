@@ -1,7 +1,7 @@
 package ar.edu.unju.fi.util;
 import java.util.ArrayList;
 
-import ar.edu.unju.fi.model.Beca;
+import ar.edu.unju.fi.entity.Beca;
 
 public class ListaBeca {
 	private ArrayList<Beca> becas;

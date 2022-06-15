@@ -8,31 +8,24 @@
 	<body class="container">
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
-			<h2>ALTA DE BECAS</h2><br>
-			<form th:action="@{/beca/becas}" method="POST" th:object="${beca}">
-			  <div class="mb-3">
-			    <label for="idCodigo" class="col-form-label">Codigo</label>
-			    <input th:field="*{codigo}" type="number" class="form-control" id="idCodigo">
-			  </div>
-			  
-			  <div class="mb-3 row">
-			    <label for="idCurso" class="col-form-label">Curso</label>
-			    <input th:field="*{curso}" type="text" class="form-control" id="idCurso">
-			  </div>
-			  
+			<h2>ALTA DE BECA</h2><br>
+			<form th:action="@{/beca/becas}" method="POST" th:object="${beca}">		  
 			  <div class="mb-3 row">
 			    <label for="idFechaInicio" class="col-form-label">Fecha de inicio</label>
 				<input th:field="*{fechaInicio}" type="date" class="form-control" id="idFechaInicio">
+				<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idFechaCierre" class="col-form-label">Fecha de cierre</label>
-			    <input th:field="*{fechaCierre}" type="date" class="form-control" id="idFechaCierre">		    
+			    <input th:field="*{fechaCierre}" type="date" class="form-control" id="idFechaCierre">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('fechaCierre')}" th:errors="*{fechaCierre}"></div>	    
 			  </div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idEstado" class="col-form-label">Estado</label>
 			    <input th:field="*{estado}" type="text" class="form-control" id="idEstado">		    
+			    <div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">

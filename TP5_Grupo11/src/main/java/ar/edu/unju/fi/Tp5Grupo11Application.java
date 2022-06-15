@@ -11,3 +11,8 @@ public class Tp5Grupo11Application {
 	}
 
 }
+
+/* TP5 BASE DE DATOS SOLO FALTA
+ * 7.- Crear el paquete repository y cree las interfaces necesarias. Identifique los métodos para realizar las
+consultas de los datos.
+ */

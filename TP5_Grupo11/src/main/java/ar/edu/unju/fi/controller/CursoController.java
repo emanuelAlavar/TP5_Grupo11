@@ -4,15 +4,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import ar.edu.unju.fi.model.Curso;
-
+import ar.edu.unju.fi.entity.Curso;
 import ar.edu.unju.fi.util.ListaCurso;
 
 @Controller
@@ -37,7 +37,13 @@ public class CursoController {
 	}
 	
 	@PostMapping("/cursos")
-	public ModelAndView getListaCursoPage(@ModelAttribute("curso")Curso curso) {
+	public ModelAndView getListaCursoPage(@Validated @ModelAttribute("curso")Curso curso, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			LOGGER.error("No se cumplen las reglas de validación");
+			ModelAndView mav = new ModelAndView("nuevo_curso");
+			mav.addObject("curso", curso);
+			return mav;
+		}
 		ModelAndView mav = new ModelAndView("lista_curso");
 		
 

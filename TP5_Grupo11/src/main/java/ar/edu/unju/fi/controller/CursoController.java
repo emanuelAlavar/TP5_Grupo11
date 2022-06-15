@@ -48,7 +48,7 @@ public class CursoController {
 		
 
 		if(listaCurso.getCursos().add(curso)) {
-			LOGGER.info("Se agregÃ³ un nuevo curso al arrayList de curso");
+			LOGGER.info("Se agrego un nuevo curso al arrayList de curso");
 		}
 
 		mav.addObject("cursos", listaCurso.getCursos());

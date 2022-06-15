@@ -46,7 +46,7 @@ public class AlumnoController {
 		ModelAndView mav = new ModelAndView("lista_alumnos");
 		
 		if(listaAlumnos.getAlumnos().add(alumno)) {
-			LOGGER.info("Se agregÃ³ un nuevo alumno al arrayList de alumnos");
+			LOGGER.info("Se agrego un nuevo alumno al arrayList de alumnos");
 		}
 		mav.addObject("alumnos", listaAlumnos.getAlumnos());
 		return mav;

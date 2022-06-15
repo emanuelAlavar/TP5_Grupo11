@@ -47,7 +47,7 @@ public class BecaController {
 		ModelAndView mav = new ModelAndView("lista_beca");
 		
 		if(listaBeca.getBecas().add(beca)) {
-			LOGGER.info("Se agregÃ³ una nueva beca al arrayList de becas");
+			LOGGER.info("Se agrego una nueva beca al arrayList de becas");
 		}
 		mav.addObject("becas", listaBeca.getBecas());
 		return mav;

@@ -23,8 +23,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Alumno implements Serializable {
 
-	private static final long serialVersionUID = 5041627761743287988L;
-	@Id @GeneratedValue(strategy =GenerationType.IDENTITY) @Column(name = "legajo")
+	private static final long serialVersionUID = -5985116137557861020L;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "legajo")
 	private int legajo;
 	@Column(name = "dni") @Min(value=1000000, message="El DNI debe tener minimo 7 cifras o un cifras de 8") @Max(value=99999999, message="El DNI debe tener maxnimo 7 cifras o un maximo de 8")
 	private int dni;
@@ -36,21 +36,35 @@ public class Alumno implements Serializable {
 	private String email;
 	@Column(name = "telefono") @Size(min=7, max=12, message="El Telefono debe tener como minimo 7 cifras o un maximo de 12")
 	private String telefono;
+	@Column(name="estado")
+	private boolean estado;
 	
 	//-----ALUMNO A CURSO-----
 	@ManyToMany(mappedBy = "alumnos")
 	private List<Curso> curso;
 	
 	
-	public Alumno(int dni, String nombre, String apellido, String email, String telefono) {
+	public Alumno(int dni, String nombre, String apellido, String email, String telefono, boolean estado) {
+		
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
+		this.estado=estado;
 	}
 
 	public Alumno() {
+	}
+	
+	
+
+	public int getLegajo() {
+		return legajo;
+	}
+
+	public void setLegajo(int legajo) {
+		this.legajo = legajo;
 	}
 
 	public int getDni() {
@@ -92,4 +106,14 @@ public class Alumno implements Serializable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+	
+	
 }

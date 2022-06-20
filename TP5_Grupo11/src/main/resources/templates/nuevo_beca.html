@@ -9,7 +9,7 @@
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
 			<h2>ALTA DE BECA</h2><br>
-			<form th:action="@{/beca/becas}" method="POST" th:object="${beca}">		  
+			<form th:action="@{/saveBeca}" method="POST" th:object="${beca}">		  		  
 			  <div class="mb-3 row">
 			    <label for="idFechaInicio" class="col-form-label">Fecha de inicio</label>
 				<input th:field="*{fechaInicio}" type="date" class="form-control" id="idFechaInicio">
@@ -29,8 +29,8 @@
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button th:href="@{/beca/becas}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
-					<a th:href="@{/beca/becas}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/becas}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			</form>
 		</div>

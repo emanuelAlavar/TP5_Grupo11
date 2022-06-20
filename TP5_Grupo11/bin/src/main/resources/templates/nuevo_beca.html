@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Nueva Beca</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<h2>ALTA DE BECA</h2><br>
+			<form th:action="@{/beca/becas}" method="POST" th:object="${beca}">		  
+			  <div class="mb-3 row">
+			    <label for="idFechaInicio" class="col-form-label">Fecha de inicio</label>
+				<input th:field="*{fechaInicio}" type="date" class="form-control" id="idFechaInicio">
+				<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idFechaCierre" class="col-form-label">Fecha de cierre</label>
+			    <input th:field="*{fechaCierre}" type="date" class="form-control" id="idFechaCierre">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('fechaCierre')}" th:errors="*{fechaCierre}"></div>	    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idEstado" class="col-form-label">Estado</label>
+			    <input th:field="*{estado}" type="text" class="form-control" id="idEstado">		    
+			    <div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button th:href="@{/beca/becas}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/beca/becas}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

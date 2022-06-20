@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Nuevo Docente</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<h2>ALTA DE DOCENTE</h2><br>
+			<form th:action="@{/docente/docentes}" method="POST" th:object="${docente}">
+
+			  <div class="mb-3 row">
+			    <label for="idNombre" class="col-form-label">Nombre</label>
+			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idapellido" class="col-form-label">Apellido</label>
+				<input th:field="*{apellido}" type="text" class="form-control" id="idapellido">
+				<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idEmail" class="col-form-label">Email</label>
+			    <input th:field="*{email}" type="email" class="form-control" id="idEmail">		  
+			    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>  
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idTelefono" class="col-form-label">Telefono</label>
+			    <input th:field="*{telefono}" type="number" class="form-control" id="idTelefono">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>	    
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/docente/docentes}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

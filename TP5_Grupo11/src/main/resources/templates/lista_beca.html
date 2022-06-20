@@ -15,14 +15,13 @@
 			<p class="h4 mb-10">Becas</p>
 			<br>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			   <a th:href="@{/beca/nuevo}" id="nuevo" class="btn btn-primary">Nuevo</a>
+			   <a th:href="@{/nuevaBeca}" id="nuevo" class="btn btn-primary">Nuevo</a>
 			</div>
 			<br>
 			<div class="col-12 d-flex justify-content-center">
 				<table class="table table-striped table-hover">
 						<tr>
 							<th>Codigo</th>
-							<th>Curso</th>
 							<th>Fecha de Inicio</th>							
 							<th>Fecha de cierre</th>
 							<th>Estado</th>
@@ -31,13 +30,12 @@
 						</tr>	
 						<tr th:each="beca: ${becas}">
 							<td th:text="${beca.codigo}"></td>
-							<td th:text="${beca.curso}"></td>
 							<td th:text="${beca.fechaInicio}"></td>
 							<td th:text="${beca.fechaCierre}"></td>
 							<td th:text="${beca.estado}"></td>
 							<td>
-							<a href="#" id="editarBeca" class="btn btn-warning">Editar</a>
-							<a href="#" id="eliminarBeca" class="btn btn-danger">Eliminar</a>
+							<a th:href="@{/becaEditar/}+${beca.codigo}" id="becaEditar" class="btn btn-warning">Editar</a>
+							<a th:href="@{/becaEliminar/}+${beca.codigo}" id="becaEliminar" class="btn btn-danger">Eliminar</a>
 							</td>
 						</tr>
 					</table>

@@ -9,7 +9,7 @@
 		<header th:replace="/layouts/header::header"></header>
 		<div class="container col-4">
 			<h2>ALTA DE CURSO</h2><br>
-			<form th:action="@{/curso/cursos}" method="POST" th:object="${curso}">
+			<form th:action="@{/saveCurso}" method="POST" th:object="${curso}">
 			  <div class="mb-3 row">
 			    <label for="idTitulo" class="col-form-label">Titulo</label>
 			    <input th:field="*{titulo}" type="text" class="form-control" id="idtitulo">
@@ -34,8 +34,20 @@
 			    <div class="text-danger" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>    
 			  </div>
 			  
+			  <div class="mb-3 row">
+			    <label for="idHoras" class="col-form-label">Horas</label>
+				<input th:field="*{horas}" type="number" class="form-control" id="idHoras">
+				<div class="text-danger" th:if="${#fields.hasErrors('horas')}" th:errors="*{horas}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idModalidad" class="col-form-label">Modalidad</label>
+				<input th:field="*{modalidad}" type="text" class="form-control" id="idModalidad">
+				<div class="text-danger" th:if="${#fields.hasErrors('modalidad')}" th:errors="*{modalidad}"></div>
+			  </div>
+			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button th:ref="@{/curso/cursos}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<button  class="btn btn-primary me-md-2" type="submit">Enviar</button>
 					<a th:href="@{/curso/cursos}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
 			  </div>
 			</form>

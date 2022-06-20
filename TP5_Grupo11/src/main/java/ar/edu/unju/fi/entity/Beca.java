@@ -32,7 +32,8 @@ public class Beca implements Serializable{
 	@Column(name = "estado")
 	@NotEmpty(message = "El Estado no puede estar en blanco")
 	private String estado;
-	
+	@Column(name="estadoBeca")
+	private boolean estadoBeca;
 	
 	public Beca(LocalDate fechaInicio, LocalDate fechaCierre, String estado) {
 		this.fechaInicio = fechaInicio;
@@ -66,7 +67,10 @@ public class Beca implements Serializable{
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-	
-	
+	public boolean isEstadoBeca() {
+		return estadoBeca;
+	}
+	public void setEstadoBeca(boolean estadoBeca) {
+		this.estadoBeca = estadoBeca;
+	}
 }

@@ -5,17 +5,17 @@
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>			
 		<meta charset="UTF-8">
-		<title>Lista de Docentes matriculados</title>		
+		<title>Lista de Docentes</title>		
 	</head>
 	
 	<body>		
 		<div class="container">
-			<header th:replace="/layouts/header :: header"></header>
+		<header th:replace="/layouts/header :: header"></header>
 			<br>
 			<p class="h4 mb-10">Docentes</p>
 			<br>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			   <a th:href="@{/docente/nuevo}" id="nuevo" class="btn btn-primary">Nuevo</a>
+			   <a th:href="@{/nuevoDocente}" id="nuevo" class="btn btn-primary">Nuevo</a>
 			</div>
 			<br>
 			<div class="col-12 d-flex justify-content-center">
@@ -35,13 +35,12 @@
 							<td th:text="${docente.email}"></td>
 							<td th:text="${docente.telefono}"></td>
 							<td>
-							<a href="#" id="editarDocente" class="btn btn-warning">Editar</a>
-							<a href="#" id="eliminarDocente" class="btn btn-danger">Eliminar</a>
+							<a th:href="@{/editarDocente/}+${docente.legajo}" id="editarDocente" class="btn btn-warning">Editar</a>
+							<a th:href="@{/eliminarDocente/}+${docente.legajo}" id="eliminarDocente" class="btn btn-danger">Eliminar</a>
 							</td>
 						</tr>
 					</table>
-				<br>
-				<br>				
+				<br><br>				
 			</div>	
 			<footer th:replace="/layouts/footer :: footer"></footer>
 		</div>		

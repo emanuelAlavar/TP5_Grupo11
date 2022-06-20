@@ -11,9 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -30,19 +30,22 @@ public class Docente implements Serializable{
 	private String apellido;
 	@Column(name = "email") @NotEmpty(message="Ingrese un Email valido") @Email(message="Ingrese un Email valido")
 	private String email;
-	@Column(name = "telefono") @Size(min=7, max=12, message="El Telefono debe tener como minimo 7 cifras o un maximo de 12")
-	private String telefono;
+	@Column(name = "telefono") @Min(value=10000, message="El telefono debe tener minimo 5 cifras o un cifras de 11") @Max(value=99999999, message="El DNI debe tener maxnimo 7 cifras o un maximo de 8")
+	private int telefono;
+	@Column(name="estado")
+	private boolean estado;
 	
 	//-----DOCENTE A CURSO-----
 	@ManyToMany(mappedBy = "docentes")
 	private List<Curso> cursos;
 	
-	public Docente(int legajo, String nombre, String apellido, String email, String telefono) {
+	public Docente(int legajo, String nombre, String apellido, String email, int telefono, boolean estado) {
 		this.legajo = legajo;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
+		this.estado = estado;
 	}
 
 	public Docente() {
@@ -81,18 +84,26 @@ public class Docente implements Serializable{
 		this.email = email;
 	}
 
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+	
 	public List<Curso> getCursos(){
 		return cursos;
 	}
 	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
-	
 }

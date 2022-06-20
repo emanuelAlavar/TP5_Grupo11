@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+	/*todos los elementos p - textos de párrafos*/
+	p {
+		color: blue;
+		font-style:italic;
+		text-align: center;
+	}
+	
+	/*toos los elementos h1 - títulos*/
+	h1 {
+		color: green;
+		font-style: italic;
+		text-align: center;
+	}
+	
+	/*todos los elementos a - enlaces*/
+	a {
+		color: blue;
+		font-family: cursive;
+	}

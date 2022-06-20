@@ -15,7 +15,7 @@
 			<p class="h4 mb-10">Cursos</p>
 			<br>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			   <a th:href="@{/curso/nuevo}" id="nuevo" class="btn btn-primary">Nuevo</a>
+			   <a th:href="@{/nuevoCurso}" id="nuevo" class="btn btn-primary">Nuevo</a>
 			</div>
 			<br>
 			<div class="col-12 d-flex justify-content-center">
@@ -26,6 +26,8 @@
 							<th>Categoria</th>							
 							<th>Fecha inicio</th>
 							<th>Fecha fin</th>
+							<th>Horas</th>
+							<th>Modalidad</th>
 							<th>Opciones</th>
 							
 						</tr>	
@@ -35,9 +37,11 @@
 							<td th:text="${curso.categoria}"></td>
 							<td th:text="${curso.fechaInicio}"></td>
 							<td th:text="${curso.fechaFin}"></td>
+							<td th:text="${curso.horas}"></td>
+							<td th:text="${curso.modalidad}"></td>
 							<td>
-							<a href="#" id="editarAlumno" class="btn btn-warning">Editar</a>
-							<a href="#" id="eliminarAlumno" class="btn btn-danger">Eliminar</a>
+							<a th:href="@{/cursoEditar/}+${curso.codigo}" id="cursoEditar" class="btn btn-warning">Editar</a>
+							<a th:href="@{/cursoEliminar/}+${curso.codigo}" id="cursoEliminar" class="btn btn-danger">Eliminar</a>
 							</td>
 						</tr>
 					</table>

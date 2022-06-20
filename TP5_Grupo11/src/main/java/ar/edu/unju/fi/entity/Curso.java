@@ -42,7 +42,8 @@ public class Curso implements Serializable{
 	private int horas;
 	@Column(name = "modalidad") @NotEmpty(message="La Modalidad no puede estar vacia")
 	private String modalidad;
-	
+	@Column(name="estado")
+	private boolean estado;
 	//-----DOCENTE A CURSO-----
 	@ManyToMany(fetch = FetchType.LAZY)
 	private List<Docente> docentes;
@@ -169,6 +170,16 @@ public class Curso implements Serializable{
 
 	public void setBecas(List<Beca> becas) {
 		this.becas = becas;
+	}
+
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 	

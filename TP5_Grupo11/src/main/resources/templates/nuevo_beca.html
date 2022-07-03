@@ -24,8 +24,22 @@
 			  
 			  <div class="mb-3 row">
 			    <label for="idEstado" class="col-form-label">Estado</label>
-			    <input th:field="*{estado}" type="text" class="form-control" id="idEstado">		    
+			    <select th:field="*{estado}" class="form-control" id="idEstado">
+					<option th:value=true>En curso</option>
+					<option th:value=false>No en curso</option>
+				</select>
 			    <div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idCurso" class="col-form-label">Curso</label>
+			    <select th:field="*{curso.codigo}" class="form-control" id="idCurso">
+					<option th:each="curso :${cursos}"
+					th:value=${curso.codigo}
+					th:text=${curso.titulo}
+					/>
+				</select>
+			    <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="curso"></div>
 			  </div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">

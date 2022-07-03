@@ -2,6 +2,7 @@ package ar.edu.unju.fi.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,6 +18,8 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -43,13 +46,18 @@ public class Curso implements Serializable{
 	@Column(name = "modalidad") @NotEmpty(message="La Modalidad no puede estar vacia")
 	private String modalidad;
 	
+	//Esta propiedad es creada como controlador. Desde html agrego un elemento Docente a esta propiedad
+	//Y con esta propiedad cargada, la agrego a la lista de docentes para la relacion en la BD. 
+	@NotNull(message="No puede estar vacio")
+	private Docente principal;
+	
 	//-----DOCENTE A CURSO-----
 	@ManyToMany(fetch = FetchType.LAZY)
-	private List<Docente> docentes;
+	private List<Docente> docentes = new ArrayList<Docente>();
 	
 	// -----ALUMNO A CURSO-----
 	@ManyToMany(fetch = FetchType.LAZY)
-	private List<Alumno> alumnos;
+	private List<Alumno> alumnos = new ArrayList<Alumno>();
 	
 	//-----BECA A CURSO-----
 	@OneToMany(fetch = FetchType.LAZY)
@@ -150,6 +158,10 @@ public class Curso implements Serializable{
 	public void setDocentes(List<Docente> docentes) {
 		this.docentes = docentes;
 	}
+	
+	public void addDocente(Docente docente) {
+		this.docentes.add(docente);
+	}
 
 
 	public List<Alumno> getAlumnos() {
@@ -169,6 +181,16 @@ public class Curso implements Serializable{
 
 	public void setBecas(List<Beca> becas) {
 		this.becas = becas;
+	}
+
+
+	public Docente getPrincipal() {
+		return principal;
+	}
+
+
+	public void setPrincipal(Docente principal) {
+		this.principal = principal;
 	}
 	
 	

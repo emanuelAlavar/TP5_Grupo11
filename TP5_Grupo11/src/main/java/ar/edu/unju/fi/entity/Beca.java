@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -30,11 +32,15 @@ public class Beca implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd") @FutureOrPresent(message = "La fecha debe ser actual o futura")
 	private LocalDate fechaCierre;
 	@Column(name = "estado")
-	@NotEmpty(message = "El Estado no puede estar en blanco")
-	private String estado;
+	@NotNull(message="Debe elegir un estado")
+	private boolean estado;
+	
+	@ManyToOne
+	@JoinColumn(name = "becas")
+	private Curso curso;
 	
 	
-	public Beca(LocalDate fechaInicio, LocalDate fechaCierre, String estado) {
+	public Beca(LocalDate fechaInicio, LocalDate fechaCierre, boolean estado) {
 		this.fechaInicio = fechaInicio;
 		this.fechaCierre = fechaCierre;
 		this.estado = estado;
@@ -60,11 +66,17 @@ public class Beca implements Serializable{
 	public void setFechaCierre(LocalDate fechaCierre) {
 		this.fechaCierre = fechaCierre;
 	}
-	public String getEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 	

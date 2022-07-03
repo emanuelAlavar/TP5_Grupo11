@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
@@ -36,10 +39,12 @@ public class Alumno implements Serializable {
 	private String email;
 	@Column(name = "telefono") @Size(min=7, max=12, message="El Telefono debe tener como minimo 7 cifras o un maximo de 12")
 	private String telefono;
-	
+	@NotNull(message="Debe seleccionar un curso")
+	@OneToOne
+	private Curso clase;
 	//-----ALUMNO A CURSO-----
 	@ManyToMany(mappedBy = "alumnos")
-	private List<Curso> curso;
+	private List<Curso> cursos = new ArrayList<Curso>();
 	
 	
 	public Alumno(int dni, String nombre, String apellido, String email, String telefono) {
@@ -91,5 +96,32 @@ public class Alumno implements Serializable {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public int getLegajo() {
+		return legajo;
+	}
+
+	public void setLegajo(int legajo) {
+		this.legajo = legajo;
+	}
+
+	public Curso getClase() {
+		return clase;
+	}
+
+	public void setClase(Curso clase) {
+		this.clase = clase;
+	}
+
+	public List<Curso> getCurso() {
+		return cursos;
+	}
+
+	public void setCurso(List<Curso> curso) {
+		this.cursos = curso;
+	}
+	public void addCurso(Curso curso) {
+		this.cursos.add(curso);
 	}
 }

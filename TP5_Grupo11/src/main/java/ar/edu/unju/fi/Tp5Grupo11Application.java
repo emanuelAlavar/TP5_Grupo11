@@ -11,6 +11,3 @@ public class Tp5Grupo11Application {
 	}
 
 }
-
-/*FALTA PUNTO 7 TP5 BASE DE DATOS Y PERSISTENCIA
- * */

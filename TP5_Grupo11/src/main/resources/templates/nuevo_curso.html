@@ -23,6 +23,12 @@
 			  </div>
 			  
 			  <div class="mb-3 row">
+			    <label for="idModalidad" class="col-form-label">Modalidad</label>
+				<input th:field="*{modalidad}" type="text" class="form-control" id="idModalidad">
+				<div class="text-danger" th:if="${#fields.hasErrors('modalidad')}" th:errors="*{modalidad}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
 			    <label for="idFechaInicio" class="col-form-label">Fecha de inicio</label>
 			    <input th:field="*{fechaInicio}" type="date" class="form-control" id="idFechaInicio">		
 			    <div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>    
@@ -34,6 +40,23 @@
 			    <div class="text-danger" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>    
 			  </div>
 			  
+			  <div class="mb-3 row">
+			    <label for="idHoras" class="col-form-label">Horas</label>
+			    <input th:field="*{horas}" type="number" class="form-control" id="idHoras">		
+			    <div class="text-danger" th:if="${#fields.hasErrors('horas')}" th:errors="horas"></div>    
+			  </div>
+			  
+			  <div class="mb-3 row">
+				<label for="docenteId" class="form-label">Docente</label> 
+				<select th:field="*{principal.legajo}" class="form-control" id="docenteId">
+					<option th:each="docente : ${docentes}"
+						th:value=${docente.legajo}
+						th:text="${docente.apellido}+', '+${docente.nombre}"
+					/>
+				</select>
+				<div class="text-danger" th:if="${#fields.hasErrors('docentes')}" th:errors="*{docentes}"></div>
+			  </div>
+				
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					<button th:ref="@{/curso/cursos}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
 					<a th:href="@{/curso/cursos}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				

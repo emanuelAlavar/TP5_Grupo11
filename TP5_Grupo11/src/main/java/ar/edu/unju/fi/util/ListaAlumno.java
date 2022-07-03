@@ -2,8 +2,10 @@ package ar.edu.unju.fi.util;
 
 import java.util.ArrayList;
 
-import ar.edu.unju.fi.entity.Alumno;
+import org.springframework.stereotype.Component;
 
+import ar.edu.unju.fi.entity.Alumno;
+@Component
 public class ListaAlumno {
 	private ArrayList<Alumno> alumnos;
 	

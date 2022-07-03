@@ -24,6 +24,12 @@
 			  </div>
 			  
 			  <div class="mb-3 row">
+			    <label for="idDni" class="col-form-label">DNI</label>
+			    <input th:field="*{dni}" type="number" class="form-control" id="idDni">
+			    <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
 			    <label for="idEmail" class="col-form-label">Email</label>
 			    <input th:field="*{email}" type="email" class="form-control" id="idEmail">		  
 			    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>  

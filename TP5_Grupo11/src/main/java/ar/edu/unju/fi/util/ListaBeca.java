@@ -1,8 +1,10 @@
 package ar.edu.unju.fi.util;
 import java.util.ArrayList;
 
-import ar.edu.unju.fi.entity.Beca;
+import org.springframework.stereotype.Component;
 
+import ar.edu.unju.fi.entity.Beca;
+@Component
 public class ListaBeca {
 	private ArrayList<Beca> becas;
 	

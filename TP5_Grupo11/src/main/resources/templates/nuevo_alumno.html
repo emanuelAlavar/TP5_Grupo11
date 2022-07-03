@@ -10,7 +10,7 @@
 		<div class="container col-4">
 			<h2>ALTA DE ALUMNO</h2><br>
 			<form th:action="@{/alumno/alumnos}" method="POST" th:object="${alumno}">
-			  <div class="mb-3">
+			  <div class="mb-3 row">
 			    <label for="idDni" class="col-form-label">DNI</label>
 			    <input th:field="*{dni}" type="number" class="form-control" id="idDni">
 			    <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
@@ -39,6 +39,17 @@
 			    <input th:field="*{telefono}" type="number" class="form-control" id="idTelefono">	
 			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>	    
 			  </div>
+			  
+			  <div class="mb-3 row">
+				<label for="cursoId" class="form-label">Curso</label> 
+				<select th:field="*{clase.codigo}" class="form-control" id="cursoCodigo">
+					<option th:each="curso : ${cursos}"
+						th:value="${curso.codigo}"
+						th:text="${curso.titulo}"
+					/>
+				</select>
+				<div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
+			</div>
 			  
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					<button th:href="@{alumno/alumnos}" class="btn btn-primary me-md-2" type="submit">Enviar</button>

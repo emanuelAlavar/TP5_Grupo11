@@ -31,7 +31,7 @@
 						</tr>	
 						<tr th:each="beca: ${becas}">
 							<td th:text="${beca.codigo}"></td>
-							<td th:text="${beca.curso}"></td>
+							<td th:text="${beca.curso.titulo}"></td>
 							<td th:text="${beca.fechaInicio}"></td>
 							<td th:text="${beca.fechaCierre}"></td>
 							<td th:text="${beca.estado}"></td>

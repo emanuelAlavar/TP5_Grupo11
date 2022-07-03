@@ -2,6 +2,7 @@ package ar.edu.unju.fi.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,43 +14,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Beca;
-import ar.edu.unju.fi.util.ListaBeca;
+import ar.edu.unju.fi.service.IBecaService;
+import ar.edu.unju.fi.service.ICursoService;
 
 @Controller
 @RequestMapping("/beca")
 public class BecaController {
 	
+	@Autowired
+	private IBecaService becaSer;
+	
+	@Autowired
+	private ICursoService cursoSer;
+	
 	private static final Log LOGGER = LogFactory.getLog(BecaController.class);
-	// creo un objeto de la clase ListaAlumno, donde estÃ¡ el arrayList
-	ListaBeca listaBeca = new ListaBeca();
 	
 	@GetMapping("/becas")
 	public ModelAndView getDocentesPage(Model model) {
 		ModelAndView mav = new ModelAndView("lista_beca");
-		mav.addObject("becas", listaBeca.getBecas());
+		mav.addObject("becas", becaSer.getBecas());
 		return mav;
 	}
 	
 	@GetMapping("/nuevo")
 	public String getFormNuevoBecaPage(Model model) {
-		model.addAttribute("beca", new Beca());
+		model.addAttribute("beca", becaSer.getBeca());
+		model.addAttribute("cursos", cursoSer.getCursos());
 		return "nuevo_beca";
 	}
 	
 	@PostMapping("/becas")
 	public ModelAndView getListaBecasPage(@Validated @ModelAttribute("beca")Beca beca, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
-			LOGGER.error("No se cumplen las reglas de validaciÃ³n");
+			LOGGER.error("No se cumplen las reglas de validacion");
 			ModelAndView mav = new ModelAndView("nuevo_beca");
 			mav.addObject("beca", beca);
 			return mav;
 		}
-		ModelAndView mav = new ModelAndView("lista_beca");
-		
-		if(listaBeca.getBecas().add(beca)) {
-			LOGGER.info("Se agrego una nueva beca al arrayList de becas");
+		ModelAndView mav = new ModelAndView("redirect:becas");
+		if(becaSer.findByCodigo(beca.getCodigo()) != null) {
+			LOGGER.info("Ya existe un alumno con el DNI: "+beca.getCodigo()+" registrado");
+			return mav;
 		}
-		mav.addObject("becas", listaBeca.getBecas());
+		becaSer.saveBeca(beca);
 		return mav;
 	}
 }

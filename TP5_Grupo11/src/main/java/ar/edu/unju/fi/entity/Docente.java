@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -24,6 +26,8 @@ public class Docente implements Serializable{
 	private static final long serialVersionUID = -5985116137557861020L;
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "legajo")
 	private int legajo;
+	@Column(name = "dni") @Min(value=1000000, message="El DNI debe tener minimo 7 cifras o un cifras de 8") @Max(value=99999999, message="El DNI debe tener maxnimo 7 cifras o un maximo de 8")
+	private int dni;
 	@Column(name = "nombre") @NotEmpty(message="El Nombre no puede estar vacio")
 	private String nombre;
 	@Column(name = "apellido") @NotEmpty(message="El Apellido no puede estar vacio")
@@ -57,6 +61,14 @@ public class Docente implements Serializable{
 		this.legajo = legajo;
 	}
 
+	public int getDni() {
+		return dni;
+	}
+
+	public void setDni(int dni) {
+		this.dni = dni;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
